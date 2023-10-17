@@ -306,3 +306,19 @@ def corner_plot(folder, planet_only=False):
 
     fig.savefig(folder + "/corner.png")
     plt.close(fig)
+
+def transit_model(times, per, tc, rp1, ar1, bb1, q1, q2):
+    u1, u2 = juliet.utils.reverse_ld_coeffs('quadratic', q1, q2)
+    params = batman.TransitParams()
+    params.t0 = tc            
+    params.per = per
+    params.rp = rp1
+    params.a = ar1
+    params.inc = np.rad2deg(np.arccos(bb1/ar1))
+    params.ecc = 0.1074
+    params.w = 106.1
+    params.u = [u1, u2]
+    params.limb_dark = "quadratic"
+    m1 = batman.TransitModel(params, times)
+    flux1 = m1.light_curve(params)
+    return flux1
