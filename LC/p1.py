@@ -46,6 +46,10 @@ msk4 = utl.outlier_removal_ycen(cenc7, clip=5., verbose=False)
 tim7, fl7, fle7 = tim7[msk4], fl7[msk4], fle7[msk4]
 cenr7, cenc7 = cenr7[msk4], cenc7[msk4]
 
+# Trimming first 45 integrations
+#tim7, fl7, fle7 = tim7[45:], fl7[45:], fle7[45:]
+#cenr7, cenc7 = cenr7[45:], cenc7[45:]
+
 # Note down how many points actually got removed in this process
 print('>>>> --- Total number of points removed: ', len(tim_all) - len(tim7))
 print('>>>> --- Total per cenr of points removed: {:.4f} %'.format(100 * (len(tim_all) - len(tim7)) / len(tim_all)))
