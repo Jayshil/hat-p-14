@@ -167,3 +167,6 @@ cython_debug/
 
 /NRCSW/Outputs
 /NRCSW/Analysis
+
+/RateInts/Corr_NRCSW
+/RateInts/Ramp_NRCSW
