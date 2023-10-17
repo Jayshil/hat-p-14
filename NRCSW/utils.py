@@ -166,7 +166,7 @@ def aperture_photometry(image, err, cen_r, cen_c, rad, sky_rad1, sky_rad2, metho
             flx1, err1, mask8 = aperture_mask(image, err, cen_r=cen_r, cen_c=cen_c, rad=rad)
             tot_sky_bkg = np.sum(mask8)*sky_flx_per_pix
             ape_flx = np.sum(flx1) - tot_sky_bkg
-            ape_err = np.sqrt(np.sum(err1**2) + (np.sum(mask8) * np.sum(mask8) * sky_flx_err_per_pix * sky_flx_err_per_pix))
+            ape_err = np.sqrt(np.sum(err1**2) + (np.sum(mask8) * sky_flx_err_per_pix * sky_flx_err_per_pix))
         else:
             # Simply computing the aperture flux from aperture mask if sky radii are None
             flx1, err1, mask8 = aperture_mask(image, err, cen_r=cen_r, cen_c=cen_c, rad=rad)
@@ -187,7 +187,7 @@ def aperture_photometry(image, err, cen_r, cen_c, rad, sky_rad1, sky_rad2, metho
             phot_bkgsub = ap_phot['aperture_sum'] - tot_sky_bkg  # Background subtraction
 
             ## Error estimation in background subtracted photometry
-            phot_bkgsub_err = np.sqrt((ap_phot['aperture_sum_err']**2) + (circ_aper.area_overlap(image) * circ_aper.area_overlap(image) * bkg_std * bkg_std))
+            phot_bkgsub_err = np.sqrt((ap_phot['aperture_sum_err']**2) + (circ_aper.area_overlap(image) * bkg_std * bkg_std))
 
             ## Results
             ape_flx, ape_err = phot_bkgsub[0], phot_bkgsub_err[0]
