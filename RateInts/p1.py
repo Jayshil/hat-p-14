@@ -15,7 +15,7 @@ import time
 # ------------------------------------------
 
 # This file is to generate corrected data from uncal files:
-# Steps: Stage 1 of the JWST pipeline, without dark correction and jump step
+# Steps: Stage 1 of the JWST pipeline, without dark correction (refpix step was replaced by ROEBA algorithm)
 # Further steps: correcting errorbars for zeros and Nan and creating a bad-pixel map
 
 segs = []
