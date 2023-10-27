@@ -78,8 +78,8 @@ ax.set_title('Super FWHM for Visit ' + str(visit), fontsize=15)
 #plt.show()
 plt.savefig(pin + '/Figures/Full_super_fwhm_' + visit + '.png', dpi=500)
 
-"""f1 = open(pin2 + '/fwhm_full_' + visit + '.dat', 'w')
+f1 = open(pin + '/fwhm_full_' + visit + '.dat', 'w')
 f1.write('# Median FWHM\t Super FWHM\n')
 for i in range(len(med_fwhm)):
     f1.write(str(med_fwhm[i]) + '\t' + str(super_fwhm[i]) + '\n')
-f1.close()"""
+f1.close()
