@@ -33,7 +33,7 @@ if f1.exists() and f2.exists():
 else:
     # Downloading the guide star data
     spk = spelunker.load(pid=1442, obs_num='1', visit='1', token='token', dir=pout, save=True)
-    #spk.optimize_photometry()
+    spk.optimize_photometry()
     fg_time = spk.fg_time + 2400000.5
     fg_flx_nonnormal = spk.fg_flux 
     fg_flx = fg_flx_nonnormal / np.nanmedian(spk.fg_flux)
