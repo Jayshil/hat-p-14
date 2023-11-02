@@ -51,6 +51,7 @@ axs.axvline(hgmove, color='k', ls=':', zorder=5, label='High-gain antenna move')
 
 axs.set_xlabel('Time (BJD)', fontsize=18)
 axs.set_ylabel('1st PC', fontsize=18)
+axs.set_xlim([np.min(tim), np.max(tim)])
 
 plt.setp(axs.get_xticklabels(), fontsize=16)
 plt.setp(axs.get_yticklabels(), fontsize=16)
